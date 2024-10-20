@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 //import "package:mobile/src/blocs/login_bloc.dart";
-import "package:mobile/src/page/home_page.dart";
+import 'package:mobile/src/views/home_page.dart';
 
 class MyHomePage extends StatefulWidget {
   final String title;
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   controller: _userController,
                   decoration: InputDecoration(
                       labelText: "Username",
-                      errorText: _userNameErr,
+                      errorText: _userInvalid ? _userNameErr : null,
                       labelStyle:
                           TextStyle(color: Color(0xffd8d8d8), fontSize: 16)),
                 )),
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     obscureText: !_showPass,
                     decoration: InputDecoration(
                         labelText: "Password",
-                        errorText: _passErr,
+                        errorText:  _passInvalid ? _passErr : null,
                         labelStyle:
                             TextStyle(color: Color(0xffd8d8d8), fontSize: 16)),
                   ),
